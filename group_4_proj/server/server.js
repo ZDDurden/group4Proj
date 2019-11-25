@@ -1,29 +1,22 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-require("dotenv").config();
-const MongoClient = require("mongodb").MongoClient;
-const uri = `mongodb+srv://zddurden:${process.env.DB_PASS}@cluster0-hamuy.mongodb.net/test?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true });
-const assert = require("assert");
-const dbName = "group4proj";
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
+dotenv.config();
 
-(async function() {
-  client.connect(function(err, client) {
-    assert.equal(null, err);
-    console.log("Connected correctly to server");
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log("DB Connected"))
+  .catch(err => console.log(err));
 
-    const db = client.db(dbName);
+mongoose.connection.on("error", err => {
+  console.log(`DB connection error: ${err.message}`);
+});
 
-    insertDocuments(db, function() {
-      findDocuments(db, function() {
-        client.close();
-      });
-    });
-  });
-})();
-
-//app.use("/assets", express.static("assets"));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -31,22 +24,9 @@ app.use(
   })
 );
 
-const findDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection("documents");
-  // Find some documents
-  collection.find({}).toArray(function(err, docs) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(docs);
-    callback(docs);
-  });
-};
-
 app.get("/express_backend", (req, res) => {
   res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
   console.log("YOUR EXPRESS BACKEND IS CONNECTED TO REACT");
-  findDocuments();
 });
 
 const PORT = process.env.PORT || 3000;
