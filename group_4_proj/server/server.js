@@ -1,22 +1,24 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
-dotenv.config();
+require("dotenv").config();
+const MongoClient = require("mongodb").MongoClient;
+const url = `mongodb+srv://zddurden:${process.env.DB_PASS}@cluster0-hamuy.mongodb.net/test?retryWrites=true&w=majority`;
+const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+const assert = require("assert");
 
-mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("DB Connected"))
-  .catch(err => console.log(err));
 
-mongoose.connection.on("error", err => {
-  console.log(`DB connection error: ${err.message}`);
+client.connect(function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("Group4Proj");
+  dbo.collection("Group4").find({}).toArray(function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    db.close();
+  });
 });
 
+//app.use("/assets", express.static("assets"));
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
@@ -25,7 +27,7 @@ app.use(
 );
 
 app.get("/express_backend", (req, res) => {
-  res.send({ express: "YOUR EXPRESS BACKEND IS CONNECTED TO REACT" });
+  res.send("YOUR EXPRESS BACKEND IS CONNECTED TO REACT");
   console.log("YOUR EXPRESS BACKEND IS CONNECTED TO REACT");
 });
 
