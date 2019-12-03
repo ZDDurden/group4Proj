@@ -16,7 +16,8 @@
     "mongodb": "^3.3.5",
     "mongodb-stitch-server-sdk": "^4.7.1",
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-webview": "^7.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

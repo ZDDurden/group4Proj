@@ -5,8 +5,9 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar
+  StatusBar,
 } from "react-native";
+import WebView from 'react-native-webview';
 
 class Main extends React.Component {
   componentDidMount() {
@@ -17,14 +18,14 @@ class Main extends React.Component {
     return (
       <View style={styles.bandBody}>
         <Text style={styles.bandName}>Juco</Text>
-        <iframe
-          src="https://open.spotify.com/embed/album/1DFixLWuPkv3KT3TnV35m3"
-          width="300"
-          height="380"
-          frameborder="0"
-          allowtransparency="true"
-          allow="encrypted-media"
-        ></iframe>
+        <WebView
+          source={{uri: 'https://open.spotify.com/embed/artist/0JchnIvUBcPVdJMtlZToe0'}}
+          style={styles.spotify}
+          // height="380"
+          // frameborder="0"
+          // allowtransparency="true"
+          // allow="encrypted-media"
+        />
         {/* <Text>yeet</Text> */}
       </View>
     );
@@ -43,6 +44,9 @@ const styles = StyleSheet.create({
     shadowColor: "#999",
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 1
+  },
+  spotify: {
+    height: 300,
   },
   bandName: {
     backgroundColor: "#59a",
