@@ -18,14 +18,12 @@ class Main extends React.Component {
     return (
       <View style={styles.bandBody}>
         <Text style={styles.bandName}>Juco</Text>
+        <View style={styles.spotView}>
         <WebView
           source={{uri: 'https://open.spotify.com/embed/artist/0JchnIvUBcPVdJMtlZToe0'}}
           style={styles.spotify}
-          // height="380"
-          // frameborder="0"
-          // allowtransparency="true"
-          // allow="encrypted-media"
         />
+        </View>
         {/* <Text>yeet</Text> */}
       </View>
     );
@@ -45,18 +43,27 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 3, height: 3 },
     shadowOpacity: 1
   },
+  spotView: {
+    flex: .44,
+    borderRadius: 10,
+    // borderWidth: 0.5,
+
+  }, 
   spotify: {
-    height: 300,
+    flex: 1,
+    borderRadius: 10,
+    borderWidth: 0.45,
   },
   bandName: {
-    backgroundColor: "#59a",
+    // backgroundColor: "#59a",
     borderWidth: 0.5,
     borderColor: "#ccc",
     borderRadius: 10,
     fontSize: 60,
     textAlign: "center",
     textTransform: "uppercase",
-    fontWeight: "800"
+    fontWeight: "800",
+    marginBottom: 20,
   }
 });
 export default Main;
