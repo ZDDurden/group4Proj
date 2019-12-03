@@ -7,7 +7,8 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-import Main from './public/Main'
+import Main from './public/Main';
+import Fetches from './public/Fetches';
 
 
 class App extends React.Component {

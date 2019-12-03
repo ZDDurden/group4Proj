@@ -1,4 +1,4 @@
-import React, { Component, Text, View } from 'react'
+import React, { Component, Text, View } from 'react';
 
 export default class Fetches extends Component {
     render() {
