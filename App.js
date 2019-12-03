@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import Main from './public/Main';
-import Fetches from './public/Fetches';
+import Fetches from './public/Components/Fetches';
 
 
 class App extends React.Component {
