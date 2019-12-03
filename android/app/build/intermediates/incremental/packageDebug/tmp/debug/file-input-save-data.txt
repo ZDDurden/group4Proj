@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Dec 03 11:05:12 CST 2019
+#Tue Dec 03 14:54:54 CST 2019
 56.path=lib/armeabi-v7a/libfolly_futures.so
 5.base=/Users/alex/Desktop/group4Proj/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 42.base=/Users/alex/Desktop/group4Proj/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
