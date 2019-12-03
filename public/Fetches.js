@@ -1,4 +1,5 @@
-import React, { Component, Text, View } from 'react';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
 
 export default class Fetches extends Component {
     render() {
