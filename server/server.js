@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const moment = require('moment');
 require("dotenv").config();
 
 const {
@@ -114,7 +115,7 @@ app.post("/events", (req, res) => {
   const data = {
     band: req.body.band,
     location: req.body.location,
-    date: req.body.date
+    date: moment().format(req.body.date)
   };
   client.auth
     .loginWithCredential(new AnonymousCredential())
