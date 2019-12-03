@@ -8,7 +8,6 @@ import {
   StatusBar,
 } from "react-native";
 import WebView from 'react-native-webview';
-import Login from './Login'
 
 class Main extends React.Component {
 
@@ -18,7 +17,16 @@ class Main extends React.Component {
 
   render() {
     return (
-      <Login style={styles.bandBody}/>
+      <View style={styles.bandBody}>
+        <Text style={styles.bandName}>Juco</Text>
+        <View style={styles.spotView}>
+        <WebView
+          source={{uri: 'https://open.spotify.com/embed/artist/0JchnIvUBcPVdJMtlZToe0'}}
+          style={styles.spotify}
+        />
+        </View>
+        {/* <Text>yeet</Text> */}
+      </View>
     );
   }
 }
