@@ -3,39 +3,57 @@ import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableO
 
 import { NativeRouter, Route, Link } from "react-router-native";
 import Header from './Components/Header'
+import Login from './Login/Login'
+
+function looog() {
+    // this.SetState({})
+    return <Login />;
+}
+
+function Home() {
+    return <Text style={styles.header}>Yeet</Text>;
+}
+
+function About() {
+    return <Text style={styles.header}>Abooooooooout</Text>;
+}
+
+function Topic({ match }) {
+    return <Text style={styles.topic}>YOTE</Text>;
+}
 
 class Welcome extends React.Component {
     render() {
         return (
-            <>
-                <View style={styles.body}>
-                    <Header />
-                    <NativeRouter>
-                        <View >
-                            <View >
-                                <Link to="/login" underlayColor="#f0f4f7" >
-                                    <TouchableOpacity style={styles.buttons} title="Login">
-                                        <Text style={styles.buttonText}>
-                                            Login
-                                    </Text>
-                                    </TouchableOpacity>
-                                </Link>
-                                <Link to="/create" underlayColor="#f0f4f7">
-                                    <TouchableOpacity style={styles.buttons} title="Create Account">
-                                        <Text style={styles.buttonText}>
-                                            Create Account
-                                    </Text>
-                                    </TouchableOpacity>
-                                </Link>
-                            </View>
 
-                            <Route exact path="/" />
-                            <Route path="/login" />
-                            <Route path="/topics" />
+            <ScrollView style={styles.body}>
+                <Header />
+                <NativeRouter>
+                    <View >
+                        <View >
+                            <TouchableOpacity style={styles.buttons} title="Login">
+                                <Link to="/login" underlayColor="#f0f4f7" >
+                                    <Text style={styles.buttonText}>
+                                        Login
+                                    </Text>
+                                </Link>
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.buttons} title="Login">
+                                <Link to="/topic" underlayColor="#f0f4f7" >
+                                    <Text style={styles.buttonText}>
+                                        CREATE ACCOUNT
+                                    </Text>
+                                </Link>
+                            </TouchableOpacity>
                         </View>
-                    </NativeRouter>
-                </View>
-            </>
+
+                        <Route exact path="/" />
+                        <Route path="/login" component={looog} />
+                        <Route path="/topic" component={Topic}/>
+                    </View>
+                </NativeRouter>
+            </ScrollView>
+
         )
     }
 }
