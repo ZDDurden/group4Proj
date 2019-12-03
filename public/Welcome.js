@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableO
 import { NativeRouter, Route, Link } from "react-router-native";
 import Header from './Components/Header'
 
-class Login extends React.Component {
+class Welcome extends React.Component {
     render() {
         return (
             <>
@@ -13,14 +13,14 @@ class Login extends React.Component {
                     <NativeRouter>
                         <View >
                             <View >
-                                <Link to="/" underlayColor="#f0f4f7" >
+                                <Link to="/login" underlayColor="#f0f4f7" >
                                     <TouchableOpacity style={styles.buttons} title="Login">
                                         <Text style={styles.buttonText}>
                                             Login
                                     </Text>
                                     </TouchableOpacity>
                                 </Link>
-                                <Link to="/about" underlayColor="#f0f4f7">
+                                <Link to="/create" underlayColor="#f0f4f7">
                                     <TouchableOpacity style={styles.buttons} title="Create Account">
                                         <Text style={styles.buttonText}>
                                             Create Account
@@ -30,7 +30,7 @@ class Login extends React.Component {
                             </View>
 
                             <Route exact path="/" />
-                            <Route path="/about" />
+                            <Route path="/login" />
                             <Route path="/topics" />
                         </View>
                     </NativeRouter>
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
 
     }
 })
-export default Login
+export default Welcome

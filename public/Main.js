@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from "react-native";
 import WebView from 'react-native-webview';
-import Login from './Login'
+import Welcome from "./Welcome";
 
 class Main extends React.Component {
 
@@ -18,7 +18,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <Login style={styles.bandBody}/>
+      <Welcome style={styles.bandBody}/>
     );
   }
 }
