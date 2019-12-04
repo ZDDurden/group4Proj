@@ -25,7 +25,7 @@ export default class BandProfile extends React.Component {
 componentDidMount() {
 	fetch("https://localhost:3000/bands")
 		.then(response => response.json())
-		.then(result => this.setState({ users: result }));
+		.then(result => this.setState({ bands: result }));
 }
 handleBandPost = async () => {
 	fetch("https://localhost:3000/bands", {
