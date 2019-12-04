@@ -70,10 +70,10 @@ app.get("/bands/:id", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
     .then(
-      () => console.log(id),
+      () => console.log(req.params.id),
       db
         .collection("Group4")
-        .find({ _id: id }, { limit: 1 })
+        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
         .asArray()
     )
     .then(docs => {
@@ -87,10 +87,10 @@ app.get("/users/:id", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
     .then(
-      () => console.log(id),
+      () => console.log(req.params.id),
       db
         .collection("users")
-        .find({ _id: id }, { limit: 1 })
+        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
         .asArray()
     )
     .then(docs => {
@@ -104,10 +104,10 @@ app.get("/events/:id", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
     .then(
-      () => console.log(id),
+      () => console.log(req.params.id),
       db
         .collection("events")
-        .find({ _id: id }, { limit: 1 })
+        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
         .asArray()
     )
     .then(docs => {
