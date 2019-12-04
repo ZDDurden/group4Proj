@@ -1,9 +1,11 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableOpacity } from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableOpacity, ImageBackground } from "react-native";
 
 import { NativeRouter, Route, Link } from "react-router-native";
 import Header from './Components/Header'
 import Login from './Login/Login'
+
+const bg = './images/background.jpg'
 
 function looog() {
     // this.SetState({})
@@ -26,11 +28,13 @@ class Welcome extends React.Component {
     render() {
         return (
 
-            <ScrollView style={styles.body}>
+            <View style={styles.body}>
+                <ImageBackground  source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
+                {/* source={require("./images/background.jpwg")} */}
                 <Header />
                 <NativeRouter>
                     <View >
-                        <View >
+                        <View>
                             <TouchableOpacity style={styles.buttons} title="Login">
                                 <Link to="/login" underlayColor="#f0f4f7" >
                                     <Text style={styles.buttonText}>
@@ -45,6 +49,7 @@ class Welcome extends React.Component {
                                     </Text>
                                 </Link>
                             </TouchableOpacity>
+                            
                         </View>
 
                         <Route exact path="/" />
@@ -52,7 +57,8 @@ class Welcome extends React.Component {
                         <Route path="/topic" component={Topic}/>
                     </View>
                 </NativeRouter>
-            </ScrollView>
+                </ImageBackground>
+            </View>
 
         )
     }
@@ -62,6 +68,16 @@ const styles = StyleSheet.create({
     body: {
         flex: 1,
         backgroundColor: '#2c2c2c'
+    },
+    background: {
+        flex: 1,
+        width: null,
+        height: null,
+        backgroundColor: '#999'
+    },
+    background2: {
+        height: "100%"
+        // backgroundColor: '#999'
     },
     buttons: {
         margin: 50,
@@ -76,7 +92,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 30,
         textTransform: "uppercase",
-
     }
 })
 export default Welcome
