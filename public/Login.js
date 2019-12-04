@@ -6,6 +6,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
 import Header from './Components/Header'
 import UserView from './Components/userView/UserView'
+import BandView from './Components/bandView/BandView'
+import styles from './Components/Styles'
+
 
 
 class SignInScreen extends React.Component {
@@ -114,21 +117,12 @@ class BandScreen extends React.Component {
     render() {
         return (
             <>
-                <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
-                    <Header />
-                    <View style={styles.container}>
-                        <TouchableOpacity style={styles.buttons} onPress={this._User}>
-                            <Text style={styles.buttonText}>
-                                USER
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttons} title="I'm done, sign me out" onPress={this._signOutAsync}>
-                            <Text style={styles.buttonText}>
-                                sign out
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </ImageBackground>
+                <BandView />
+                <TouchableOpacity style={styles.buttonContainer} onPress={this._signOutAsync}>
+                    <Text style={styles.buttonText}>
+                        sign out
+                    </Text>
+                </TouchableOpacity>
             </>
         );
     }
@@ -199,55 +193,10 @@ const TheStack = createAppContainer(createSwitchNavigator(
 class Login extends React.Component {
     render() {
         return (
-            <TheStack theme="dark" />
+            <TheStack  />
         )
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 60,
-        // alignItems: 'center',
-    },
-    body: {
-        flex: 1,
-        // backgroundColor: '#000'
-    },
-    buttons: {
-        margin: 30,
-        fontSize: 80,
-        backgroundColor: "#c24",
-        textAlign: 'center',
-        paddingVertical: 30,
-        borderRadius: 50,
 
-    },
-    buttonText: {
-        textAlign: 'center',
-        fontSize: 30,
-        textTransform: "uppercase",
-
-    },
-    stack: {
-        backgroundColor: '#000'
-    },
-    background: {
-        flex: 1,
-        width: null,
-        height: null,
-        backgroundColor: '#999'
-    },
-    buttonContainer: {
-        marginTop: 10,
-        height: 45,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        textAlign: 'center',
-        alignItems: 'center',
-        marginBottom: 20,
-        width: 250,
-        borderRadius: 30,
-        backgroundColor: "#c24",
-    },
-})
 export default Login

@@ -14,13 +14,6 @@ class Feed extends React.Component { render(){return (<UserFeed />)} }
 const TheStack = createMaterialTopTabNavigator({ Profile: Profile, Swipe: Swipe, Feed: Feed });
 
 const UserView = createAppContainer(TheStack);
-// class UserView extends React.Component {
-//     render() {
-//         return (
-//             <TheStack />
-//         )
-//     }
-// }
 
 export default UserView
 
