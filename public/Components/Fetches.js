@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+// import UserProfile from '../userView/UserProfileMain'
 
 export default class Fetches extends Component {
   constructor() {
@@ -22,11 +23,11 @@ export default class Fetches extends Component {
       .then(response => response.json())
       .then(result => this.setState({ events: result }));
   }
-  render() {
-    return (
-      <UserProfileMain userInfo = {this.state.users} />
-    );
-  }
+  // render() {
+  //   return (
+  //     <UserProfile userInfo = {this.state.users} />
+  //   );
+  // }
   catch(err) {
     console.log(err);
   }

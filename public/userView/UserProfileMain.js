@@ -14,6 +14,29 @@ import Header from '../Components/Header'
 import Fetches from '../Components/Fetches'
 
 export default class UserProfile extends React.Component {
+	// constructor() {
+	// 	super();
+	// 	this.state = {
+	// 		bands: [],
+	// 		users: [],
+	// 		events: [],
+	// 		isLoaded: true
+	// 	};
+	// }
+
+	// componentDidMount() {
+	// 	fetch("https://localhost:3000/bands")
+	// 	  .then(response => response.json())
+	// 	  .then(result => this.setState({ bands: result }));
+	// 	fetch("https://localhost:3000/users")
+	// 	  .then(response => response.json())
+	// 	  .then(result => this.setState({ users: result }));
+	// 	fetch("https://localhost:3000/events")
+	// 	  .then(response => response.json())
+	// 	  .then(result => this.setState({ events: result }));
+		  
+	//   }
+
 	render() {
 		return (
 			<View style={styles.container}>
@@ -21,18 +44,18 @@ export default class UserProfile extends React.Component {
 				<Image style={styles.avatar} source={{ uri: 'https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg' }} />
 				<View style={styles.body}>
 					<View style={styles.bodyContent}>
-						<Text style={styles.name}>{this.props.userInfo.name}</Text>
+						<Text style={styles.name}>test</Text>
 						<Text style={styles.info}>Bio</Text>
 
 
-						<Link to="/UserSettings" underlayColor="#f0f4f7">
-							<TouchableOpacity style={styles.buttonContainer} title="UserSettings">
+						<Link to="/Settings" underlayColor="#f0f4f7">
+							<TouchableOpacity style={styles.buttonContainer} title="Settings">
 								<Text>Settings</Text>
 							</TouchableOpacity>
 						</Link>
-						<Link to="/UserEdit" underlayColor="#f0f4f7">
-							<TouchableOpacity style={styles.buttonContainer} title="UserEdit">
-								<Text>Edit Profile</Text>
+						<Link to="/Edit" underlayColor="#f0f4f7">
+							<TouchableOpacity style={styles.buttonContainer} title="Edit">
+								<Text>Edit</Text>
 							</TouchableOpacity>
 						</Link>
 					</View>
@@ -43,61 +66,60 @@ export default class UserProfile extends React.Component {
 }
 
 const styles = StyleSheet.create({
-	container: {flex:1},
-	header:{
-	  backgroundColor: "#c24",
-	  height:200,
+	container: { flex: 1 },
+	header: {
+		backgroundColor: "#c24",
+		height: 200,
 	},
 	avatar: {
-	  width: 130,
-	  height: 130,
-	  borderRadius: 63,
-	  borderWidth: 4,
-	  borderColor: "white",
-	  marginBottom:10,
-	  alignSelf:'center',
-	  position: 'absolute',
-	  marginTop:130
+		width: 130,
+		height: 130,
+		borderRadius: 63,
+		borderWidth: 4,
+		borderColor: "white",
+		marginBottom: 10,
+		alignSelf: 'center',
+		position: 'absolute',
+		marginTop: 130
 	},
-	name:{
-	  fontSize:22,
-	  color:"#FFFFFF",
-	  fontWeight:'600',
+	name: {
+		fontSize: 22,
+		color: "#FFFFFF",
+		fontWeight: '600',
 	},
-	body:{
-	  marginTop:40,
+	body: {
+		marginTop: 40,
 	},
 	bodyContent: {
-	  flex: 1,
-	  alignItems: 'center',
-	  padding:30,
+		flex: 1,
+		alignItems: 'center',
+		padding: 30,
 	},
-	name:{
-	  fontSize:28,
-	  color: "#696969",
-	  fontWeight: "600"
+	name: {
+		fontSize: 28,
+		color: "#696969",
+		fontWeight: "600"
 	},
-	info:{
-	  fontSize:16,
-	  color: "#00BFFF",
-	  marginTop:10
+	info: {
+		fontSize: 16,
+		color: "#00BFFF",
+		marginTop: 10
 	},
-	description:{
-	  fontSize:16,
-	  color: "#696969",
-	  marginTop:10,
-	  textAlign: 'center'
+	description: {
+		fontSize: 16,
+		color: "#696969",
+		marginTop: 10,
+		textAlign: 'center'
 	},
 	buttonContainer: {
-	  marginTop:10,
-	  height:45,
-	  flexDirection: 'row',
-	  justifyContent: 'center',
-	  alignItems: 'center',
-	  marginBottom:20,
-	  width:250,
-	  borderRadius:30,
-	  backgroundColor: "#c24",
+		marginTop: 10,
+		height: 45,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginBottom: 20,
+		width: 250,
+		borderRadius: 30,
+		backgroundColor: "#c24",
 	},
-  });
-   
+});
