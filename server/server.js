@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const moment = require("moment");
 require("dotenv").config();
-const ObjectID = require("mongodb").ObjectID;
+const { ObjectID } = require("mongodb");
 
 const {
   Stitch,
@@ -83,14 +83,14 @@ app.get("/bands/:id", (req, res) => {
     .catch(err => console.log(err));
 });
 app.get("/users/:id", (req, res) => {
-  const id = new ObjectID(req.params.id);
+  const id = req.params.id;
   client.auth
     .loginWithCredential(new AnonymousCredential())
     .then(
       () => console.log(req.params.id),
       db
         .collection("users")
-        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
+        .find({ _id: id }, { limit: 1 })
         .asArray()
     )
     .then(docs => {
