@@ -53,11 +53,7 @@ handleUserPost = async () => {
 				<Image style={styles.avatar} source={{ uri: 'https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg' }} />
 				<View style={styles.body}>
 					<View style={styles.bodyContent}>
-<<<<<<< HEAD
 						<Text style={styles.name}>{this.state.users.name}</Text>
-=======
-						<Text style={styles.name}>test</Text>
->>>>>>> 079f01b7121b3aab81671af2c349ccebccf31af1
 						<Text style={styles.info}>Bio</Text>
 
 
