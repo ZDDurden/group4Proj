@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const moment = require("moment");
 require("dotenv").config();
-const ObjectID = require('mongodb').ObjectID
+const ObjectID = require("mongodb").ObjectID;
 
 const {
   Stitch,
@@ -38,21 +38,6 @@ app.get("/bands", (req, res) => {
       console.log("Found docs", docs);
     });
 });
-app.get("/bands/:id", (req, res) => {
-  const id = new ObjectID(req.params.id);
-  client.auth
-    .loginWithCredential(new AnonymousCredential())
-    .then(
-      () => console.log(id),
-      db.collection("Group4").find({ "_id": id }, { limit: 1 })
-      .asArray()
-    )
-    .then(docs => {
-      res.send(docs);
-      console.log(docs);
-    })
-    .catch(err => console.log(err));
-});
 app.get("/users", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
@@ -80,6 +65,60 @@ app.get("/events", (req, res) => {
       res.send(docs);
       console.log("Found docs", docs);
     });
+});
+
+//Get from ObjectId
+
+app.get("/bands/:id", (req, res) => {
+  const id = new ObjectID(req.params.id);
+  client.auth
+    .loginWithCredential(new AnonymousCredential())
+    .then(
+      () => console.log(id),
+      db
+        .collection("Group4")
+        .find({ _id: id }, { limit: 1 })
+        .asArray()
+    )
+    .then(docs => {
+      res.send(docs);
+      console.log(docs);
+    })
+    .catch(err => console.log(err));
+});
+app.get("/users/:id", (req, res) => {
+  const id = new ObjectID(req.params.id);
+  client.auth
+    .loginWithCredential(new AnonymousCredential())
+    .then(
+      () => console.log(id),
+      db
+        .collection("users")
+        .find({ _id: id }, { limit: 1 })
+        .asArray()
+    )
+    .then(docs => {
+      res.send(docs);
+      console.log(docs);
+    })
+    .catch(err => console.log(err));
+});
+app.get("/events/:id", (req, res) => {
+  const id = new ObjectID(req.params.id);
+  client.auth
+    .loginWithCredential(new AnonymousCredential())
+    .then(
+      () => console.log(id),
+      db
+        .collection("events")
+        .find({ _id: id }, { limit: 1 })
+        .asArray()
+    )
+    .then(docs => {
+      res.send(docs);
+      console.log(docs);
+    })
+    .catch(err => console.log(err));
 });
 
 //Post routes
