@@ -5,7 +5,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
 import Header from './Components/Header'
-import UserProfile from './userView/UserProfileMain'
+import UserView from './Components/userView/UserView'
 
 
 class SignInScreen extends React.Component {
@@ -22,12 +22,12 @@ class SignInScreen extends React.Component {
                         <TouchableOpacity style={styles.buttons} title="Login" onPress={this._signInAsync}>
                             <Text style={styles.buttonText}>
                                 Login
-                    </Text>
+                            </Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.buttons} title="Login">
                             <Text style={styles.buttonText}>
                                 CREATE ACCOUNT
-                    </Text>
+                            </Text>
                         </TouchableOpacity>
                     </View>
                 </ImageBackground>
@@ -86,27 +86,12 @@ class UserScreen extends React.Component {
         return (
 
             <>
-                <UserProfile />
+                <UserView />
                 <TouchableOpacity style={styles.buttonContainer} title="I'm done, sign me out" onPress={this._signOutAsync}>
                     <Text style={styles.buttonText}>
                         sign out
-                            </Text>
+                    </Text>
                 </TouchableOpacity>
-                {/* <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
-                    <Header />
-                    <View style={styles.container}>
-                        <TouchableOpacity style={styles.buttons} onPress={this._Band}>
-                            <Text style={styles.buttonText}>
-                                BAND
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttons} title="I'm done, sign me out" onPress={this._signOutAsync}>
-                            <Text style={styles.buttonText}>
-                                sign out
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </ImageBackground> */}
             </>
         );
     }

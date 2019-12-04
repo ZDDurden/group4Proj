@@ -9,11 +9,7 @@ import {
 } from "react-native";
 import WebView from 'react-native-webview';
 
-class Main extends React.Component {
-
-  // componentDidMount() {
-  //   fetch();
-  // }
+class UserSwipe extends React.Component {
 
   render() {
     return (
@@ -25,7 +21,6 @@ class Main extends React.Component {
           style={styles.spotify}
         />
         </View>
-        {/* <Text>yeet</Text> */}
       </View>
     );
   }
@@ -67,4 +62,4 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   }
 });
-export default Main;
+export default UserSwipe;

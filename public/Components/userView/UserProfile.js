@@ -10,41 +10,42 @@ import {
 	Image
 } from "react-native";
 import { NativeRouter, Route, Link } from "react-router-native";
-import Header from '../Components/Header'
-import Fetches from '../Components/Fetches'
+import Header from '../Header'
+import Fetches from '../Fetches'
 
-export default class UserProfile extends React.Component {
-	constructor(){
+class UserProfile extends React.Component {
+	constructor() {
 		super();
-	
-	this.setState = {
-		users: [],
-		isLoaded: true
-	};
+
+		this.setState = {
+			users: [],
+			isLoaded: true
+		};
 	}
-componentDidMount() {
-	fetch("https://localhost:3000/users")
-		.then(response => response.json())
-		.then(result => this.setState({ users: result }));
-}
-handleUserPost = async () => {
-	fetch("https://localhost:3000/users", {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json"
-		},
-		body: JSON.stringify({
-			name: req.body.value,
-			email: req.body.value,
-			password: req.body.value,
-			dob: req.body.value,
-			location: req.body.value,
-			likes: req.body.value,
-			pic: req.body.value,
-			bands: req.body.value,
-			genres: req.body.value
+	componentDidMount() {
+		fetch("https://localhost:3000/users")
+			.then(response => response.json())
+			.then(result => this.setState({ users: result }));
+	}
+	handleUserPost = async () => {
+		fetch("https://localhost:3000/users", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				name: req.body.value,
+				email: req.body.value,
+				password: req.body.value,
+				dob: req.body.value,
+				location: req.body.value,
+				likes: req.body.value,
+				pic: req.body.value,
+				bands: req.body.value,
+				genres: req.body.value
+			})
 		})
-	})};
+	};
 
 	render() {
 		return (
@@ -132,3 +133,5 @@ const styles = StyleSheet.create({
 		backgroundColor: "#c24",
 	},
 });
+
+export default UserProfile
