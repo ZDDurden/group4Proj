@@ -14,6 +14,37 @@ import Header from '../Components/Header'
 import Fetches from '../Components/Fetches'
 
 export default class UserProfile extends React.Component {
+	constructor(){
+		super();
+	
+	this.setState = {
+		bands: [],
+		isLoaded: true
+	};
+	}
+componentDidMount() {
+	fetch("https://localhost:3000/users")
+		.then(response => response.json())
+		.then(result => this.setState({ users: result }));
+}
+handleUserPost = async () => {
+	fetch("https://localhost:3000/users", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			name: req.body.value,
+			email: req.body.value,
+			password: req.body.value,
+			dob: req.body.value,
+			location: req.body.value,
+			likes: req.body.value,
+			pic: req.body.value,
+			bands: req.body.value,
+			genres: req.body.value
+		})
+	})};
 	render() {
 		return (
 			<View style={styles.container}>
@@ -21,7 +52,7 @@ export default class UserProfile extends React.Component {
 				<Image style={styles.avatar} source={{ uri: 'https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg' }} />
 				<View style={styles.body}>
 					<View style={styles.bodyContent}>
-						<Text style={styles.name}>{this.props.userInfo.name}</Text>
+						<Text style={styles.name}>{this.state.users.name}</Text>
 						<Text style={styles.info}>Bio</Text>
 
 

@@ -23,6 +23,7 @@ export default class Fetches extends Component {
       .then(result => this.setState({ events: result }));
   }
   render() {
+    const { userInfo } = this.state.users
     return (
       <UserProfileMain userInfo = {this.state.users} />
     );

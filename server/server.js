@@ -37,6 +37,19 @@ app.get("/bands", (req, res) => {
       console.log("Found docs", docs);
     });
 });
+// app.get("/bands", (req, res) => {
+//   client.auth
+//     .loginWithCredential(new AnonymousCredential())
+//     .then(() =>
+//       db
+//         .collection("Group4")
+//         .find({_id: req.params.id.value}, { limit: 1 })
+//     )
+//     .then(docs => {
+//       res.send(docs);
+//       console.log("Found docs", docs);
+//     });
+// });
 app.get("/users", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
