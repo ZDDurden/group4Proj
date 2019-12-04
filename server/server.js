@@ -22,7 +22,6 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Welcome to Bander");
-  console.log("Welcome to Bander");
 });
 app.get("/bands", (req, res) => {
   client.auth
@@ -35,7 +34,6 @@ app.get("/bands", (req, res) => {
     )
     .then(docs => {
       res.send(docs);
-      console.log("Found docs", docs);
     });
 });
 app.get("/users", (req, res) => {
@@ -49,7 +47,6 @@ app.get("/users", (req, res) => {
     )
     .then(docs => {
       res.send(docs);
-      console.log("Found docs", docs);
     });
 });
 app.get("/events", (req, res) => {
@@ -63,7 +60,6 @@ app.get("/events", (req, res) => {
     )
     .then(docs => {
       res.send(docs);
-      console.log("Found docs", docs);
     });
 });
 
