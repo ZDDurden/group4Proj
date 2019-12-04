@@ -42,8 +42,9 @@ export default class UserProfile extends React.Component {
 }
 
 const styles = StyleSheet.create({
+	container: {flex:1},
 	header:{
-	  backgroundColor: "#00BFFF",
+	  backgroundColor: "#c24",
 	  height:200,
 	},
 	avatar: {
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
 	  marginBottom:20,
 	  width:250,
 	  borderRadius:30,
-	  backgroundColor: "#00BFFF",
+	  backgroundColor: "#c24",
 	},
   });
    

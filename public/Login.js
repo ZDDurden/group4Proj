@@ -5,6 +5,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { Transition } from 'react-native-reanimated';
 import Header from './Components/Header'
+import UserProfile from './userView/UserProfileMain'
 
 
 class SignInScreen extends React.Component {
@@ -17,7 +18,7 @@ class SignInScreen extends React.Component {
             <>
                 <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
                     <Header />
-                    <View>
+                    <View style={styles.container}>
                         <TouchableOpacity style={styles.buttons} title="Login" onPress={this._signInAsync}>
                             <Text style={styles.buttonText}>
                                 Login
@@ -35,7 +36,7 @@ class SignInScreen extends React.Component {
     }
 
     _signInAsync = async () => {
-        // await AsyncStorage.setItem('userToken', 'abc');
+        await AsyncStorage.setItem('userToken', 'abc');
         this.props.navigation.navigate('App');
     };
 }
@@ -50,7 +51,7 @@ class HomeScreen extends React.Component {
             <>
                 <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
                     <Header />
-                    <View style={styles.body}>
+                    <View style={styles.container}>
                         <TouchableOpacity style={styles.buttons} onPress={this._User}>
                             <Text style={styles.buttonText}>
                                 USER
@@ -72,7 +73,6 @@ class HomeScreen extends React.Component {
     };
 
     _Band = async () => {
-        // await AsyncStorage.clear();
         this.props.navigation.navigate('Band');
     };
 }
@@ -84,8 +84,15 @@ class UserScreen extends React.Component {
 
     render() {
         return (
+
             <>
-                <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
+                <UserProfile />
+                <TouchableOpacity style={styles.buttonContainer} title="I'm done, sign me out" onPress={this._signOutAsync}>
+                    <Text style={styles.buttonText}>
+                        sign out
+                            </Text>
+                </TouchableOpacity>
+                {/* <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
                     <Header />
                     <View style={styles.container}>
                         <TouchableOpacity style={styles.buttons} onPress={this._Band}>
@@ -99,13 +106,12 @@ class UserScreen extends React.Component {
                             </Text>
                         </TouchableOpacity>
                     </View>
-                </ImageBackground>
+                </ImageBackground> */}
             </>
         );
     }
 
     _Band = async () => {
-        // await AsyncStorage.clear();
         this.props.navigation.navigate('Band');
     };
 
@@ -181,16 +187,16 @@ class AuthLoadingScreen extends React.Component {
 const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen }, {
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
-      <Transition.Together>
-        <Transition.Out
-          type="slide-left"
-          durationMs={4000}
-          interpolation="easeIn"
-        />
-        <Transition.In type="fade" durationMs={4000} />
-      </Transition.Together>
+        <Transition.Together>
+            <Transition.Out
+                type="slide-left"
+                durationMs={4000}
+                interpolation="easeIn"
+            />
+            <Transition.In type="fade" durationMs={4000} />
+        </Transition.Together>
     ),
-  });
+});
 const AuthStack = createStackNavigator({ SignIn: SignInScreen });
 const TheStack = createAppContainer(createSwitchNavigator(
 
@@ -214,12 +220,16 @@ class Login extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 60,
+        // alignItems: 'center',
+    },
     body: {
         flex: 1,
         // backgroundColor: '#000'
     },
     buttons: {
-        margin: 50,
+        margin: 30,
         fontSize: 80,
         backgroundColor: "#c24",
         textAlign: 'center',
@@ -241,6 +251,18 @@ const styles = StyleSheet.create({
         width: null,
         height: null,
         backgroundColor: '#999'
+    },
+    buttonContainer: {
+        marginTop: 10,
+        height: 45,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        textAlign: 'center',
+        alignItems: 'center',
+        marginBottom: 20,
+        width: 250,
+        borderRadius: 30,
+        backgroundColor: "#c24",
     },
 })
 export default Login
