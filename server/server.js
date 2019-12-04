@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const moment = require('moment');
+const moment = require("moment");
 require("dotenv").config();
 
 const {
@@ -19,6 +19,10 @@ app.use(express.json());
 
 //Get routes
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Bander");
+  console.log("Welcome to Bander");
+});
 app.get("/bands", (req, res) => {
   client.auth
     .loginWithCredential(new AnonymousCredential())
