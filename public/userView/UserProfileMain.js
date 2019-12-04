@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import { NativeRouter, Route, Link } from "react-router-native";
 import Header from '../Components/Header'
+import Fetches from '../Components/Fetches'
 
 export default class UserProfile extends React.Component {
 	render() {
@@ -20,7 +21,7 @@ export default class UserProfile extends React.Component {
 				<Image style={styles.avatar} source={{ uri: 'https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg' }} />
 				<View style={styles.body}>
 					<View style={styles.bodyContent}>
-						<Text style={styles.name}>Username</Text>
+						<Text style={styles.name}>{this.props.userInfo.name}</Text>
 						<Text style={styles.info}>Bio</Text>
 
 
