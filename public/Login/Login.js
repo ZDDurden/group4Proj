@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableOpacity } from "react-native";
 
 import { NativeRouter, Route, Link } from "react-router-native";
-import Header from './Components/Header'
+import Header from '../Components/Header'
 
 class Login extends React.Component {
     render() {
@@ -13,24 +13,24 @@ class Login extends React.Component {
                     <NativeRouter>
                         <View >
                             <View >
-                                <Link to="/" underlayColor="#f0f4f7" >
+                                <Link to="/login" underlayColor="#f0f4f7" >
                                     <TouchableOpacity style={styles.buttons} title="Login">
                                         <Text style={styles.buttonText}>
-                                            Login
+                                            LISTENER
                                     </Text>
                                     </TouchableOpacity>
                                 </Link>
-                                <Link to="/about" underlayColor="#f0f4f7">
+                                <Link to="/create" underlayColor="#f0f4f7">
                                     <TouchableOpacity style={styles.buttons} title="Create Account">
                                         <Text style={styles.buttonText}>
-                                            Create Account
+                                            BAND
                                     </Text>
                                     </TouchableOpacity>
                                 </Link>
                             </View>
 
                             <Route exact path="/" />
-                            <Route path="/about" />
+                            <Route path="/login" />
                             <Route path="/topics" />
                         </View>
                     </NativeRouter>
