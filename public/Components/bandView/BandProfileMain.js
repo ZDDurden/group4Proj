@@ -14,6 +14,41 @@ import Header from '../Components/Header'
 import Fetches from '../Components/Fetches'
 
 export default class BandProfile extends React.Component {
+	constructor(){
+		super();
+	
+	this.setState = {
+		bands: [],
+		isLoaded: true
+	};
+	}
+componentDidMount() {
+	fetch("https://localhost:3000/bands")
+		.then(response => response.json())
+		.then(result => this.setState({ users: result }));
+}
+handleBandPost = async () => {
+	fetch("https://localhost:3000/bands", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			name: req.body.value,
+			email: req.body.value,
+			password: req.body.value,
+			location: req.body.value,
+			genre: req.body.value,
+			bio: req.body.value,
+			spotify: req.body.value,
+			social: req.body.value
+		})
+	})
+		.then(response => response.json())
+		.catch(error => {
+			console.error(error);
+		});
+};
 	render() {
 		return (
 			<View style={styles.container}>
