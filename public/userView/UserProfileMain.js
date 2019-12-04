@@ -18,7 +18,7 @@ export default class UserProfile extends React.Component {
 		super();
 	
 	this.setState = {
-		bands: [],
+		users: [],
 		isLoaded: true
 	};
 	}
