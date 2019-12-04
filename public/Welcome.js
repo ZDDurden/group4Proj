@@ -1,68 +1,30 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, TouchableOpacity, ImageBackground } from "react-native";
-
-import { NativeRouter, Route, Link } from "react-router-native";
+import { StyleSheet, View, ImageBackground } from "react-native";
 import Header from './Components/Header'
-import Login from './Login/Login'
+import LogOrCreate from './Login/LogOrCreate'
+import Login from './Login'
+import UserProfile from './userView/UserProfileMain'
 
-const bg = './images/background.jpg'
 
-function looog() {
-    // this.SetState({})
-    return <Login />;
-}
-
-function Home() {
-    return <Text style={styles.header}>Yeet</Text>;
-}
-
-function About() {
-    return <Text style={styles.header}>Abooooooooout</Text>;
-}
-
-function Topic({ match }) {
-    return <Text style={styles.topic}>YOTE</Text>;
-}
 
 class Welcome extends React.Component {
     render() {
         return (
 
             <View style={styles.body}>
-                <ImageBackground  source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
-                {/* source={require("./images/background.jpwg")} */}
-                <Header />
-                <NativeRouter>
-                    <View >
-                        <View>
-                            <TouchableOpacity style={styles.buttons} title="Login">
-                                <Link to="/login" underlayColor="#f0f4f7" >
-                                    <Text style={styles.buttonText}>
-                                        Login
-                                    </Text>
-                                </Link>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.buttons} title="Login">
-                                <Link to="/topic" underlayColor="#f0f4f7" >
-                                    <Text style={styles.buttonText}>
-                                        CREATE ACCOUNT
-                                    </Text>
-                                </Link>
-                            </TouchableOpacity>
-                            
+                <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
+                    {/* source={require("./images/background.jpwg")} */}
+                    <Header />
+                        <View style={{ flex: 1 }}>
+                            <Login/>
                         </View>
-
-                        <Route exact path="/" />
-                        <Route path="/login" component={looog} />
-                        <Route path="/topic" component={Topic}/>
-                    </View>
-                </NativeRouter>
                 </ImageBackground>
             </View>
 
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     body: {
@@ -95,3 +57,6 @@ const styles = StyleSheet.create({
     }
 })
 export default Welcome
+
+
+
