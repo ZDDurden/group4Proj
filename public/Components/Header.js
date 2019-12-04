@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button } from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button, ImageBackground } from "react-native";
 
 import { NativeRouter, Route, Link } from "react-router-native";
 
@@ -8,7 +8,7 @@ class Header extends React.Component {
         return (
             <>
                 <View style={styles.headerWindow}>
-                    <Text style={styles.header}>BANDER</Text>
+                    <ImageBackground source={require('../images/logo.png')} resizeMode='cover' style={{marginTop: 30,width: '100%', height:80}}/>
                 </View>
             </>
         )
