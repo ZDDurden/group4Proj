@@ -13,7 +13,7 @@ import { NativeRouter, Route, Link } from "react-router-native";
 import Header from '../Components/Header'
 import Fetches from '../Components/Fetches'
 
-export default class UserProfile extends React.Component {
+export default class BandProfile extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -21,17 +21,17 @@ export default class UserProfile extends React.Component {
 				<Image style={styles.avatar} source={{ uri: 'https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg' }} />
 				<View style={styles.body}>
 					<View style={styles.bodyContent}>
-						<Text style={styles.name}>{this.props.userInfo.name}</Text>
+						<Text style={styles.name}>{this.props.bandInfo.name}</Text>
 						<Text style={styles.info}>Bio</Text>
 
 
-						<Link to="/UserSettings" underlayColor="#f0f4f7">
-							<TouchableOpacity style={styles.buttonContainer} title="UserSettings">
+						<Link to="/BandSettings" underlayColor="#f0f4f7">
+							<TouchableOpacity style={styles.buttonContainer} title="BandSettings">
 								<Text>Settings</Text>
 							</TouchableOpacity>
 						</Link>
-						<Link to="/UserEdit" underlayColor="#f0f4f7">
-							<TouchableOpacity style={styles.buttonContainer} title="UserEdit">
+						<Link to="/BandEdit" underlayColor="#f0f4f7">
+							<TouchableOpacity style={styles.buttonContainer} title="BandEdit">
 								<Text>Edit Profile</Text>
 							</TouchableOpacity>
 						</Link>
