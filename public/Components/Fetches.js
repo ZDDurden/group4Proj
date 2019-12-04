@@ -24,12 +24,7 @@ export default class Fetches extends Component {
   }
   render() {
     return (
-      <View>
-        {/* <Test bands={bands} users={users} events={events} /> */}
-        <Text>`${this.state.bands}`</Text>
-        <Text>`${this.state.users}`</Text>
-        <Text>`${this.state.events}`</Text>
-      </View>
+      <UserProfileMain userInfo = {this.state.users} />
     );
   }
   catch(err) {
