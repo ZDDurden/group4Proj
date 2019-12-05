@@ -19,30 +19,23 @@ class UserProfile extends React.Component {
     super(props);
 
     this.state = {
-	  name: "",
-	  location: "",
-	  likes: "",
+      name: "",
+      location: "",
+      likes: "",
       isLoaded: false
     };
   }
   componentDidMount() {
-    return fetch("https://localhost:3000/users/5de587643fab7bf2c5529383", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      }
-    })
+    return fetch("https://localhost:3000/users/5de587643fab7bf2c5529383")
       .then(response => {
-        alert(Received);
+        alert(response.json());
         return response.json();
       })
       .then(result => {
-		  const { name, location, likes } = result
         this.setState({
-		  name: name,
-		  location: location,
-		  likes: likes,
+          name: result.name,
+          location: result.location,
+          likes: result.likes,
           isLoaded: true
         });
         alert(this.state.name);
