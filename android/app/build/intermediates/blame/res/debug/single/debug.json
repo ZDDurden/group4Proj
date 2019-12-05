@@ -644,6 +644,10 @@
         "source": "/Users/student/.gradle/caches/transforms-2/files-2.1/312a338aee0fc449000ae2d1c0d5ce51/res/layout-v21/notification_template_custom_big.xml"
     },
     {
+        "merged": "/Users/student/Desktop/bander/android/app/build/intermediates/res/merged/debug/xml_network_security_config.xml.flat",
+        "source": "/Users/student/Desktop/bander/android/app/src/debug/res/xml/network_security_config.xml"
+    },
+    {
         "merged": "/Users/student/Desktop/bander/android/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "/Users/student/.gradle/caches/transforms-2/files-2.1/bd0936ab788c2c995f268ed4eed1e4b2/res/drawable-mdpi-v4/abc_btn_switch_to_on_mtrl_00001.9.png"
     },
