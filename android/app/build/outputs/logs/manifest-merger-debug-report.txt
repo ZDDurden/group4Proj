@@ -46,9 +46,9 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/student/.g
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/student/.gradle/caches/transforms-2/files-2.1/265ad3b68d836d85f9f50d3fe840cd9a/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/student/.gradle/caches/transforms-2/files-2.1/dbcfc1766bb63ce3533e1ec73fa4ad18/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.fresco:fbcore:2.0.0] /Users/student/.gradle/caches/transforms-2/files-2.1/c4b3884065802c31c403a49effb7fa06/AndroidManifest.xml:2:1-9:12
-INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-8:12
-INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-9:12
+INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 	package
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:2:3-23
 		INJECTED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml
@@ -68,6 +68,8 @@ INJECTED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifes
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:4:5-67
 	android:name
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:4:22-64
 application
@@ -90,12 +92,12 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/stud
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:8:7-39
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:8:7-39
 	tools:ignore
-		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:7:75-114
+		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:8:75-114
 	android:roundIcon
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:10:7-52
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:10:7-52
 	tools:targetApi
-		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:7:54-74
+		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:8:54-74
 	android:icon
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:9:7-41
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:9:7-41
@@ -106,7 +108,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] /Users/stud
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:12:7-38
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:12:7-38
 	android:usesCleartextTraffic
-		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:7:18-53
+		ADDED from /Users/student/Desktop/bander/android/app/src/debug/AndroidManifest.xml:8:18-53
 	android:name
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:7:7-38
 		ADDED from /Users/student/Desktop/bander/android/app/src/main/AndroidManifest.xml:7:7-38
