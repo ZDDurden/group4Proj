@@ -66,19 +66,20 @@ app.get("/events", (req, res) => {
 //Get from ObjectId
 
 app.get("/bands/:id", (req, res) => {
-  const id = new ObjectID(req.params.id);
+  const id = req.params.id;
   client.auth
     .loginWithCredential(new AnonymousCredential())
-    .then(
-      () => console.log(req.params.id),
-      db
-        .collection("Group4")
-        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
-        .asArray()
-    )
-    .then(docs => {
-      res.send(docs);
-      console.log(docs);
+    .then(() => {
+      db.collection("Group4")
+        .findOne({ _id: ObjectID(id) })
+        .then(result => {
+          if (result) {
+            res.send(result);
+          } else {
+            console.log("No document matches the provided query.");
+          }
+        })
+        .catch(err => console.error(`Failed to find document: ${err}`));
     })
     .catch(err => console.log(err));
 });
@@ -86,33 +87,35 @@ app.get("/users/:id", (req, res) => {
   const id = req.params.id;
   client.auth
     .loginWithCredential(new AnonymousCredential())
-    .then(
-      () => console.log(req.params.id),
-      db
-        .collection("users")
-        .find({ _id: id }, { limit: 1 })
-        .asArray()
-    )
-    .then(docs => {
-      res.send(docs);
-      console.log(docs);
+    .then(() => {
+      db.collection("users")
+        .findOne({ _id: ObjectID(id) })
+        .then(result => {
+          if (result) {
+            res.send(result);
+          } else {
+            console.log("No document matches the provided query.");
+          }
+        })
+        .catch(err => console.error(`Failed to find document: ${err}`));
     })
     .catch(err => console.log(err));
 });
 app.get("/events/:id", (req, res) => {
-  const id = new ObjectID(req.params.id);
+  const id = req.params.id;
   client.auth
     .loginWithCredential(new AnonymousCredential())
-    .then(
-      () => console.log(req.params.id),
-      db
-        .collection("events")
-        .find({ _id: ObjectID(req.params.id) }, { limit: 1 })
-        .asArray()
-    )
-    .then(docs => {
-      res.send(docs);
-      console.log(docs);
+    .then(() => {
+      db.collection("events")
+        .findOne({ _id: ObjectID(id) })
+        .then(result => {
+          if (result) {
+            res.send(result);
+          } else {
+            console.log("No document matches the provided query.");
+          }
+        })
+        .catch(err => console.error(`Failed to find document: ${err}`));
     })
     .catch(err => console.log(err));
 });
