@@ -1,8 +1,6 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, StatusBar, ActivityIndicator, AsyncStorage, ImageBackground } from "react-native";
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-import { Transition } from 'react-native-reanimated';
 import BandProfile from './BandProfile'
 import BandStats from './BandStats'
 import BandTools from './BandTools'
