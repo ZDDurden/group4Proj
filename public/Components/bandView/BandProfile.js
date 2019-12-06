@@ -16,26 +16,20 @@ export default class BandProfile extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
-      location: "",
-      bio: "",
+      bands: [],
       isLoaded: false
     };
   }
   componentDidMount() {
-    return fetch("https://localhost:3000/bands/:id")
+    return fetch("https://banderapi.herokuapp.com/bands/5de5848383c0259731bbe274")
       .then(response => {
-        alert(response.json());
         return response.json();
       })
       .then(result => {
         this.setState({
-          name: result.name,
-          location: result.location,
-          bio: result.bio,
+          bands: result,
           isLoaded: true
         });
-        alert(this.state.name);
       })
       .catch(error => {
         alert("request failed", error);
@@ -54,8 +48,8 @@ export default class BandProfile extends React.Component {
         />
         <View style={styles.body}>
           <View style={styles.bodyContent}>
-            <Text style={styles.name}>band name</Text>
-            <Text style={styles.info}>Bio</Text>
+            <Text style={styles.name}>{this.state.bands.name}</Text>
+            <Text style={styles.info}>{this.state.bands.location}</Text>
             <TouchableOpacity
               style={styles.buttonContainer}
               title="BandSettings"
