@@ -26,7 +26,7 @@ class UserProfile extends React.Component {
     };
   }
   componentDidMount() {
-    return fetch("https://localhost:3000/users/5de587643fab7bf2c5529383")
+    return fetch("https://172.16.20.89:3000/users/5de587643fab7bf2c5529383")
       .then(response => {
         alert(response.json());
         return response.json();
