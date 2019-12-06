@@ -142,6 +142,29 @@ class BandScreen extends React.Component {
     };
 }
 
+class UserForm extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
+
+    render() {
+        return (
+            <>
+                <UserAccForm />
+                <TouchableOpacity style={styles.buttonContainer} onPress={this._signOutAsync}>
+                    <Text style={styles.buttonText}>
+                        sign out
+                    </Text>
+                </TouchableOpacity>
+            </>
+        );
+    }
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('Auth');
+    };
+}
+
 class AuthLoadingScreen extends React.Component {
     constructor() {
         super();
@@ -168,7 +191,7 @@ class AuthLoadingScreen extends React.Component {
     }
 }
 
-const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, CreateUser: UserAccForm }, {
+const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, CreateUser: UserForm }, {
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
         <Transition.Together>

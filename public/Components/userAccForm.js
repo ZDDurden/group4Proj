@@ -54,7 +54,7 @@ const options = {
 export default class UserAccForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
-    fetch("https://localhost:3000/users", {
+    fetch("https://https://banderapi.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
