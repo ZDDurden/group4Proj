@@ -18,6 +18,8 @@ import com.group4.R;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
+// react-native-vector-icons
+import com.oblador.vectoricons.VectorIconsPackage;
 // react-native-webview
 import com.reactnativecommunity.webview.RNCWebViewPackage;
 
@@ -67,6 +69,7 @@ public class PackageList {
       new MainReactPackage(mConfig),
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),
+      new VectorIconsPackage(),
       new RNCWebViewPackage()
     ));
   }

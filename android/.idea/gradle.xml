@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/../node_modules/react-native-gesture-handler/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-navigation/lib/android/app" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-reanimated/android" />
+            <option value="$PROJECT_DIR$/../node_modules/react-native-vector-icons/android" />
             <option value="$PROJECT_DIR$/../node_modules/react-native-webview/android" />
           </set>
         </option>

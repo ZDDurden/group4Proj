@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/student/Desktop/bander/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
+            "outputFile": "/Users/student/Desktop/group4Proj/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml",
             "map": [
                 {
                     "source": "/Users/student/.gradle/caches/transforms-2/files-2.1/bd0936ab788c2c995f268ed4eed1e4b2/res/values-gl/values-gl.xml",
