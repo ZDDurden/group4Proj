@@ -7,6 +7,7 @@ import { Transition } from 'react-native-reanimated';
 import Header from './Components/Header'
 import UserView from './Components/userView/UserView'
 import BandView from './Components/bandView/BandView'
+import UserAccForm from './Components/userAccForm'
 import styles from './Components/Styles'
 
 
@@ -27,7 +28,7 @@ class SignInScreen extends React.Component {
                                 Login
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.buttons} title="Login">
+                        <TouchableOpacity style={styles.buttons} title="Login" onPress={this._createAccAsync}>
                             <Text style={styles.buttonText}>
                                 CREATE ACCOUNT
                             </Text>
@@ -41,6 +42,10 @@ class SignInScreen extends React.Component {
     _signInAsync = async () => {
         await AsyncStorage.setItem('userToken', 'abc');
         this.props.navigation.navigate('App');
+    };
+    _createAccAsync = async () => {
+        await AsyncStorage.setItem('userToken', 'abc');
+        this.props.navigation.navigate('UserAccForm');
     };
 }
 

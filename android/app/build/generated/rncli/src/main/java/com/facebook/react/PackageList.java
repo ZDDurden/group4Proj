@@ -11,8 +11,8 @@ import com.facebook.react.shell.MainReactPackage;
 import java.util.Arrays;
 import java.util.ArrayList;
 
-import com.group4.BuildConfig;
-import com.group4.R;
+import com.bsproj.BuildConfig;
+import com.bsproj.R;
 
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;

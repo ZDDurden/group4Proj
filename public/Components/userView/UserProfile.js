@@ -19,29 +19,23 @@ class UserProfile extends React.Component {
     super(props);
 
     this.state = {
-      name: "",
-      location: "",
-      likes: "",
+      user: [],
       isLoaded: false
     };
   }
   componentDidMount() {
-    fetch("https://10.0.2.2:3000/users/5de587643fab7bf2c5529383")
+    fetch("https://banderapi.herokuapp.com/users/5de587643fab7bf2c5529383")
       .then(response => {
-        alert(response.json());
         return response.json();
       })
       .then(result => {
         this.setState({
-          name: result.name,
-          location: result.location,
-          likes: result.likes,
+          user: result,
           isLoaded: true
         });
-        alert(this.state.name);
       })
       .catch(error => {
-        alert("request failed", error);
+        alert(error);
       });
   }
 
@@ -65,8 +59,8 @@ class UserProfile extends React.Component {
           />
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>{this.state.name}</Text>
-              <Text style={styles.info}>Bio</Text>
+              <Text style={styles.name}>{this.state.user.name}</Text>
+              <Text style={styles.info}>{this.state.user.location}</Text>
 
               <Link to="/Settings" underlayColor="#f0f4f7">
                 <TouchableOpacity

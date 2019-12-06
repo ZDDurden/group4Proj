@@ -51,7 +51,7 @@ const options = {
   stylesheet: formStyles,
 };
 
-export default class App extends Component {
+export default class UserAccForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
     fetch("https://localhost:3000/users", {
