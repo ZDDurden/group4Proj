@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Dec 06 08:44:24 CST 2019
+#Fri Dec 06 09:52:57 CST 2019
 64.base=/Users/student/Desktop/bander/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
 64.baseType=DIRECTORY
 33.base=/Users/student/Desktop/bander/android/app/build/intermediates/transforms/mergeJniLibs/debug/0
