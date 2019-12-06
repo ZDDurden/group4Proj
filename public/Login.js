@@ -45,7 +45,7 @@ class SignInScreen extends React.Component {
     };
     _createAccAsync = async () => {
         await AsyncStorage.setItem('userToken', 'abc');
-        this.props.navigation.navigate('UserAccForm');
+        this.props.navigation.navigate('CreateUser');
     };
 }
 
@@ -168,7 +168,7 @@ class AuthLoadingScreen extends React.Component {
     }
 }
 
-const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen }, {
+const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, CreateUser: UserAccForm }, {
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
         <Transition.Together>
