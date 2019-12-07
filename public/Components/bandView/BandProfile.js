@@ -31,14 +31,21 @@ export default class BandProfile extends React.Component {
     header: null,
 };
   componentDidMount() {
-    return fetch(`https://banderapi.herokuapp.com/bands/${id}`)
+    // const fetchConfig = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   }}
+    fetch(`https://banderapi.herokuapp.com/bands/${id}`)
       .then(response => {
         return response.json();
       })
       .then(result => {
         this.setState({
           bands: result,
-          isLoaded: true
+          isLoaded: true,
+          // id: result._id
         });
       })
       .catch(error => {
