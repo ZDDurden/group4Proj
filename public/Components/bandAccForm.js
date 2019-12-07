@@ -7,9 +7,9 @@ const Form = t.form.Form;
 
 const Band = t.struct({
   email: t.String,
-  username: t.maybe(t.String),
+  bandname: t.String,
   password: t.String,
-  terms: t.Boolean
+  location: t.String
 });
 
 const formStyles = {
@@ -41,11 +41,14 @@ const options = {
     email: {
       error: 'Without an email address how are you going to reset your password when you forget it?'
     },
+    bandname: {
+      error: 'We need to know the name of your band'
+    },
     password: {
       error: 'Choose something you use on a dozen other sites or something you won\'t remember'
     },
-    terms: {
-      label: 'Agree to Terms',
+    location: {
+      label: 'Where are you originally from?',
     },
   },
   stylesheet: formStyles,

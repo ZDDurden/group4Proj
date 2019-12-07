@@ -5,11 +5,10 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
-const User = t.struct({
-  email: t.String,
-  username: t.maybe(t.String),
-  password: t.String,
-  location: t.String
+const Event = t.struct({
+  band: t.String,
+  location: t.String,
+  date: t.Date
 });
 
 const formStyles = {
@@ -38,14 +37,14 @@ const formStyles = {
 
 const options = {
   fields: {
-    email: {
-      error: 'Without an email address how are you going to reset your password when you forget it?'
-    },
-    password: {
-      error: 'Choose something you use on a dozen other sites or something you won\'t remember'
+    band: {
+      error: 'We need to know who you are'
     },
     location: {
-      label: 'Where are you located?',
+      error: 'Where is your event?'
+    },
+    date: {
+      label: 'When is your event?',
     },
   },
   stylesheet: formStyles,
@@ -54,16 +53,15 @@ const options = {
 export default class UserAccForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
-    fetch("https://https://banderapi.herokuapp.com/users", {
+    fetch("https://https://banderapi.herokuapp.com/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: this.refs.form.getComponent('name').refs.input.focus().getValue(),
-        email: this.refs.form.getComponent('email').refs.input.focus().getValue(),
-        password: this.refs.form.getComponent('password').refs.input.focus().getValue(),
-        location: this.refs.form.getComponent('location').refs.input.focus().getValue()
+        band: this.refs.form.getComponent('name').refs.input.focus().getValue(),
+        location: this.refs.form.getComponent('location').refs.input.focus().getValue(),
+        date: this.refs.form.getComponent('date').refs.input.focus().getValue()
       })
     })
       .then(response => response.json())
@@ -78,7 +76,7 @@ export default class UserAccForm extends Component {
       <View style={styles.container}>
         <Form 
           ref={form}
-          type={User} 
+          type={Event} 
           options={options}
         />
         <Button
