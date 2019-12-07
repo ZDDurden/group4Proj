@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.group4"
+        applicationId "com.bander"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

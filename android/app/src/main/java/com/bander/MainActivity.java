@@ -1,4 +1,4 @@
-package com.group4;
+package com.bander;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "group4";
+    return "Bander";
   }
 }

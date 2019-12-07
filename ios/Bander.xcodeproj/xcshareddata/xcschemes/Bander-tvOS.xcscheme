@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "group4-tvOS.app"
-               BlueprintName = "group4-tvOS"
-               ReferencedContainer = "container:group4.xcodeproj">
+               BuildableName = "Bander-tvOS.app"
+               BlueprintName = "Bander-tvOS"
+               ReferencedContainer = "container:Bander.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "group4-tvOSTests.xctest"
-               BlueprintName = "group4-tvOSTests"
-               ReferencedContainer = "container:group4.xcodeproj">
+               BuildableName = "Bander-tvOSTests.xctest"
+               BlueprintName = "Bander-tvOSTests"
+               ReferencedContainer = "container:Bander.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "group4-tvOSTests.xctest"
-               BlueprintName = "group4-tvOSTests"
-               ReferencedContainer = "container:group4.xcodeproj">
+               BuildableName = "Bander-tvOSTests.xctest"
+               BlueprintName = "Bander-tvOSTests"
+               ReferencedContainer = "container:Bander.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "group4-tvOS.app"
-            BlueprintName = "group4-tvOS"
-            ReferencedContainer = "container:group4.xcodeproj">
+            BuildableName = "Bander-tvOS.app"
+            BlueprintName = "Bander-tvOS"
+            ReferencedContainer = "container:Bander.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "group4-tvOS.app"
-            BlueprintName = "group4-tvOS"
-            ReferencedContainer = "container:group4.xcodeproj">
+            BuildableName = "Bander-tvOS.app"
+            BlueprintName = "Bander-tvOS"
+            ReferencedContainer = "container:Bander.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "group4-tvOS.app"
-            BlueprintName = "group4-tvOS"
-            ReferencedContainer = "container:group4.xcodeproj">
+            BuildableName = "Bander-tvOS.app"
+            BlueprintName = "Bander-tvOS"
+            ReferencedContainer = "container:Bander.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

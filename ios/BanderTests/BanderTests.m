@@ -14,11 +14,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface group4Tests : XCTestCase
+@interface BanderTests : XCTestCase
 
 @end
 
-@implementation group4Tests
+@implementation BanderTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {
