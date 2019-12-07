@@ -5,15 +5,10 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
-const Band = t.struct({
-  name: t.String,
-  email: t.String,
-  password: t.String,
+const Event = t.struct({
+    band: t.String,
   location: t.String,
-  genre: t.String,
-  bio: t.String,
-  spotify: t.String,
-  social: t.String
+  date: t.Date
 });
 
 const formStyles = {
@@ -42,51 +37,31 @@ const formStyles = {
 
 const options = {
   fields: {
-    name: {
-      error: 'error'
+    band: {
+        error: 'We need to know who you are'
+      },
+      location: {
+        error: 'Where is your event?'
+      },
+      date: {
+        label: 'When is your event?',
+      },
     },
-    email: {
-      error: 'Without an email address how are you going to reset your password when you forget it?'
-    },
-    password: {
-      error: 'Choose something you use on a dozen other sites or something you won\'t remember'
-    },
-    location: {
-      error: 'error'
-    },
-    genre: {
-      error: 'error'
-    },
-    bio: {
-      error: 'error'
-    },
-    spotify: {
-      error: 'error'
-    },
-    social: {
-      error: 'error'
-    }
-  },
   stylesheet: formStyles,
 };
 
-export default class BandEditForm extends Component {
+export default class UserEditForm extends Component {
   handleSubmit = () => {
     const value = this.refs.form.getValue();
-    fetch("https://banderapi.herokuapp.com/bands/:id", {
+    fetch("https://banderapi.herokuapp.com/events/:id", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: value.name,
-        email: value.email,
-        password: value.password,
+        band: value.band,
         location: value.location,
-        genre: value.genre,
-        bio: value.bio,
-        spotify: value.spotify,
-        social: value.social
+        date: value.date
       })
     })
       .then(response => response.json())
@@ -101,7 +76,7 @@ export default class BandEditForm extends Component {
       <View style={styles.container}>
         <Form 
           ref="form"
-          type={Band} 
+          type={Event} 
           options={options}
         />
         <Button

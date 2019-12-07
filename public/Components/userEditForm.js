@@ -73,22 +73,22 @@ const options = {
 
 export default class UserEditForm extends Component {
   handleSubmit = () => {
-    const value = this._form.getValue();
+    const value = this.refs.form.getValue();
     fetch("https://banderapi.herokuapp.com/users/:id", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: value,
-        email: value,
-        password: value,
-        dob: value,
-        location: value,
-        likes: value,
-        pic: value,
-        bands: value,
-        genres: value
+        name: value.name,
+        email: value.email,
+        password: value.password,
+        dob: value.dob,
+        location: value.location,
+        likes: value.likes,
+        pic: value.pic,
+        bands: value.bands,
+        genres: value.genres
       })
     })
       .then(response => response.json())
@@ -102,7 +102,7 @@ export default class UserEditForm extends Component {
     return (
       <View style={styles.container}>
         <Form 
-          ref={c => this._form = c}
+          ref="form"
           type={User} 
           options={options}
         />
