@@ -14,6 +14,8 @@ import Header from "../Header";
 import Fetches from "../Fetches";
 import styles from "../Styles";
 
+const id = '5de587643fab7bf2c5529383'
+
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ class UserProfile extends React.Component {
     };
   }
   componentDidMount() {
-    fetch("https://banderapi.herokuapp.com/users/5de587643fab7bf2c5529383")
+    fetch(`https://banderapi.herokuapp.com/users/${id}`)
       .then(response => {
         return response.json();
       })

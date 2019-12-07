@@ -51,10 +51,10 @@ const options = {
   stylesheet: formStyles,
 };
 
-export default class App extends Component {
+export default class BandAccForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
-    fetch("https://localhost:3000/users", {
+    fetch("https://banderapi.herokuapp.com/bands", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

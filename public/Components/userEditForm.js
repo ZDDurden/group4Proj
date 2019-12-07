@@ -5,15 +5,16 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
-const Band = t.struct({
-  name: t.String,
-  email: t.String,
-  password: t.String,
-  location: t.String,
-  genre: t.String,
-  bio: t.String,
-  spotify: t.String,
-  social: t.String
+const User = t.struct({
+    name: t.String,
+    email: t.String,
+    password: t.String,
+    dob: t.String,
+    location: t.String,
+    likes: t.String,
+    pic: t.String,
+    bands: t.String,
+    genres: t.String
 });
 
 const formStyles = {
@@ -70,10 +71,10 @@ const options = {
   stylesheet: formStyles,
 };
 
-export default class BandEditForm extends Component {
+export default class UserEditForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
-    fetch("https://banderapi.herokuapp.com/bands/:id", {
+    fetch("https://banderapi.herokuapp.com/users/:id", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -82,11 +83,12 @@ export default class BandEditForm extends Component {
         name: value,
         email: value,
         password: value,
+        dob: value,
         location: value,
-        genre: value,
-        bio: value,
-        spotify: value,
-        social: value
+        likes: value,
+        pic: value,
+        bands: value,
+        genres: value
       })
     })
       .then(response => response.json())
@@ -101,7 +103,7 @@ export default class BandEditForm extends Component {
       <View style={styles.container}>
         <Form 
           ref={c => this._form = c}
-          type={Band} 
+          type={User} 
           options={options}
         />
         <Button

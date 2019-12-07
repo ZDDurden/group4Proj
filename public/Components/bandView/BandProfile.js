@@ -7,9 +7,16 @@ import {
   Text,
   StatusBar,
   TouchableOpacity,
-  Image
+  Image,
+  ActivityIndicator, AsyncStorage, ImageBackground
 } from "react-native";
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { Transition } from 'react-native-reanimated';
+import BandEditForm from '../bandEditForm'
 import styles from "../Styles";
+
+const id = '5de5848383c0259731bbe274'
 
 export default class BandProfile extends React.Component {
   constructor(props) {
@@ -20,8 +27,11 @@ export default class BandProfile extends React.Component {
       isLoaded: false
     };
   }
+  static navigationOptions = {
+    header: null,
+};
   componentDidMount() {
-    return fetch("https://banderapi.herokuapp.com/bands/5de5848383c0259731bbe274")
+    return fetch(`https://banderapi.herokuapp.com/bands/${id}`)
       .then(response => {
         return response.json();
       })
@@ -36,6 +46,13 @@ export default class BandProfile extends React.Component {
       });
   }
   render() {
+    if (!this.state.isLoaded) {
+      return (
+        <View>
+          <Text>Loading...</Text>
+        </View>
+      );
+    } else {
     return (
       <View style={styles.container}>
         <View style={styles.header}></View>
@@ -63,5 +80,7 @@ export default class BandProfile extends React.Component {
         </View>
       </View>
     );
-  }
+  }}
 }
+
+

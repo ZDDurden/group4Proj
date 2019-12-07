@@ -8,6 +8,7 @@ import Header from './Components/Header'
 import UserView from './Components/userView/UserView'
 import BandView from './Components/bandView/BandView'
 import UserAccForm from './Components/userAccForm'
+import BandAccForm from './Components/bandAccForm'
 import styles from './Components/Styles'
 
 
@@ -45,7 +46,7 @@ class SignInScreen extends React.Component {
     };
     _createAccAsync = async () => {
         await AsyncStorage.setItem('userToken', 'abc');
-        this.props.navigation.navigate('CreateUser');
+        this.props.navigation.navigate('Create');
     };
 }
 
@@ -82,6 +83,43 @@ class HomeScreen extends React.Component {
 
     _Band = async () => {
         this.props.navigation.navigate('Band');
+    };
+}
+
+class CreateScreen extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
+
+    render() {
+        return (
+            <>
+                <ImageBackground source={require('./images/background.jpg')} resizeMode='cover' style={styles.background}>
+                    <Header />
+                    <View style={styles.container}>
+                        <TouchableOpacity style={styles.buttons} onPress={this._createUserAsync}>
+                            <Text style={styles.buttonText}>
+                                USER
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.buttons} onPress={this._createBandAsync}>
+                            <Text style={styles.buttonText}>
+                                BAND
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                </ImageBackground>
+            </>
+        );
+    }
+
+    _createUserAsync = async () => {
+        await AsyncStorage.setItem('userToken', 'abc');
+        this.props.navigation.navigate('CreateUser');
+    };
+    _createBandAsync = async () => {
+        await AsyncStorage.setItem('userToken', 'abc');
+        this.props.navigation.navigate('CreateBand');
     };
 }
 
@@ -165,6 +203,53 @@ class UserForm extends React.Component {
     };
 }
 
+class BandForm extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
+
+    render() {
+        return (
+            <>
+                <BandAccForm />
+                <TouchableOpacity style={styles.buttonContainer} onPress={this._signOutAsync}>
+                    <Text style={styles.buttonText}>
+                        sign out
+                    </Text>
+                </TouchableOpacity>
+            </>
+        );
+    }
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('Auth');
+    };
+}
+
+class BandEdit extends React.Component {
+    static navigationOptions = {
+        header: null,
+    };
+  
+    render() {
+        return (
+            <>
+                <BandEditForm />
+                <TouchableOpacity style={styles.buttonContainer} onPress={this._signOutAsync}>
+                    <Text style={styles.buttonText}>
+                        sign out
+                    </Text>
+                </TouchableOpacity>
+            </>
+        );
+    }
+    _signOutAsync = async () => {
+        await AsyncStorage.clear();
+        this.props.navigation.navigate('Auth');
+    };
+  }
+
+
 class AuthLoadingScreen extends React.Component {
     constructor() {
         super();
@@ -191,7 +276,7 @@ class AuthLoadingScreen extends React.Component {
     }
 }
 
-const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, CreateUser: UserForm }, {
+const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, Create: CreateScreen, CreateUser: UserForm, CreateBand: BandForm, BandEd: BandEdit}, {
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
         <Transition.Together>
