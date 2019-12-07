@@ -1,7 +1,11 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/student/Desktop/bander/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+<<<<<<< HEAD
+            "outputFile": "/Users/student/Desktop/groupProject/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+=======
+            "outputFile": "/Users/student/Desktop/group4Proj/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml",
+>>>>>>> f768293e35b92d00a49dcb8c787bc74d18bd3bdc
             "map": [
                 {
                     "source": "/Users/student/.gradle/caches/transforms-2/files-2.1/bd0936ab788c2c995f268ed4eed1e4b2/res/values-ms/values-ms.xml",
