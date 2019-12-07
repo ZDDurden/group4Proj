@@ -50,7 +50,7 @@ const options = {
   stylesheet: formStyles,
 };
 
-export default class UserAccForm extends Component {
+export default class EventAccForm extends Component {
   handleSubmit = () => {
     const value = this._form.getValue();
     fetch("https://https://banderapi.herokuapp.com/events", {
