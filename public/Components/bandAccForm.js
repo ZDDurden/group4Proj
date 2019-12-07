@@ -56,17 +56,18 @@ const options = {
 
 export default class BandAccForm extends Component {
   handleSubmit = () => {
-    const value = this._form.getValue();
+    const value = this.refs.form.getValue()
+  
     fetch("https://banderapi.herokuapp.com/bands", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: value,
-        email: value,
-        password: value,
-        location: value
+        name: value.bandname,
+        email: value.email,
+        password: value.password,
+        location: value.location
       })
     })
       .then(response => response.json())
@@ -80,7 +81,7 @@ export default class BandAccForm extends Component {
     return (
       <View style={styles.container}>
         <Form 
-          ref={c => this._form = c}
+          ref="form"
           type={Band} 
           options={options}
         />

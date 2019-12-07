@@ -52,16 +52,17 @@ const options = {
 
 export default class EventAccForm extends Component {
   handleSubmit = () => {
-    const value = this._form.getValue();
-    fetch("https://https://banderapi.herokuapp.com/events", {
+    const value = this.refs.form.getValue()
+  
+    fetch("https://banderapi.herokuapp.com/events", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        band: this.refs.form.getComponent('name').refs.input.focus().getValue(),
-        location: this.refs.form.getComponent('location').refs.input.focus().getValue(),
-        date: this.refs.form.getComponent('date').refs.input.focus().getValue()
+        band: value.band,
+        location: value.location,
+        date: value.date
       })
     })
       .then(response => response.json())
@@ -75,7 +76,7 @@ export default class EventAccForm extends Component {
     return (
       <View style={styles.container}>
         <Form 
-          ref={form}
+          ref="form"
           type={Event} 
           options={options}
         />

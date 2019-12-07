@@ -53,17 +53,18 @@ const options = {
 
 export default class UserAccForm extends Component {
   handleSubmit = () => {
-    const value = this._form.getValue();
-    fetch("https://https://banderapi.herokuapp.com/users", {
+    const value = this.refs.form.getValue()
+  
+    fetch("https://banderapi.herokuapp.com/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: this.refs.form.getComponent('name').refs.input.focus().getValue(),
-        email: this.refs.form.getComponent('email').refs.input.focus().getValue(),
-        password: this.refs.form.getComponent('password').refs.input.focus().getValue(),
-        location: this.refs.form.getComponent('location').refs.input.focus().getValue()
+        name: value.username,
+        email: value.email,
+        password: value.password,
+        location: value.location
       })
     })
       .then(response => response.json())
@@ -77,7 +78,7 @@ export default class UserAccForm extends Component {
     return (
       <View style={styles.container}>
         <Form 
-          ref={form}
+          ref="form"
           type={User} 
           options={options}
         />
