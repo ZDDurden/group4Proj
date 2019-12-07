@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Button } from 'react-native';
+import { withNavigation } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import { Transition } from 'react-native-reanimated';
+import Main from '../Main'
 
 import t from 'tcomb-form-native';
 
@@ -90,6 +94,20 @@ export default class UserAccForm extends Component {
     );
   }
 }
+
+const AppStack = createStackNavigator({ Home: Main}, {
+  // The previous screen will slide to the bottom while the next screen will fade in
+  transition: (
+      <Transition.Together>
+          <Transition.Out
+              type="slide-left"
+              durationMs={4000}
+              interpolation="easeIn"
+          />
+          <Transition.In type="fade" durationMs={4000} />
+      </Transition.Together>
+  ),
+});
 
 const styles = StyleSheet.create({
   container: {
