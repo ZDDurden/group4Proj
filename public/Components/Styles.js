@@ -5,17 +5,21 @@ const styles = StyleSheet.create({
     bandBody: {
         backgroundColor: c.white,
         borderWidth: 0.5,
+
+        borderWidth: 0.5,
+        borderRadius: 10,
         borderColor: c.light1,
         borderRadius: 10,
         flex: 1,
-        margin: 20,
-        padding: 20,
+        marginTop: 10,
+        margin: 5,
+        padding: 0,
         shadowColor: c.shadow,
         shadowOffset: { width: 3, height: 3 },
-        shadowOpacity: 1
+        shadowOpacity: 1,
     },
     spotView: {
-        flex: .44,
+        flex: 1,
         borderRadius: 10,
         // borderWidth: 0.5,
 
@@ -25,16 +29,46 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         borderWidth: 0.45,
     },
-    bandName: {
-        backgroundColor: c.primary2,
+    bandDetails: {
+        flex: 1,
+        justifyContent: "center",
+        paddingTop: 200,
+        paddingLeft: 20,
+        backgroundColor: "rgba(50,50,50,.5)",
         borderWidth: 0.5,
-        borderColor: c.light2,
         borderRadius: 10,
         fontSize: 60,
-        textAlign: "center",
+        color: c.light1,
+        textAlign: "left",
         textTransform: "uppercase",
         fontWeight: "800",
-        marginBottom: 20,
+        // marginBottom: 20,    
+    },
+
+    bandName: {
+        fontSize: 60,
+        color: c.light1,
+        padding: 0,
+        margin: 0,
+        textTransform: "uppercase"
+
+    },
+    bandGenre: {
+        fontSize: 20,
+        fontWeight: "300",
+        color: c.light1,
+        padding: 0,
+        margin: 0,
+
+    },
+    bandLocation: {
+        fontSize: 20,
+        fontWeight: "300",
+
+        color: c.light1,
+        padding: 0,
+        margin: 0,
+        
     },
     container: {
         marginTop: 60,
@@ -121,6 +155,16 @@ const styles = StyleSheet.create({
         marginTop: 10,
         textAlign: 'center'
     },
+
+
+
+
+
+
+    swipeBanner: {
+        height: 400,
+        marginBottom: 10
+    }
 });
 
 export default styles

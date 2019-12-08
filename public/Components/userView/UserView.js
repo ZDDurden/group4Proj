@@ -7,11 +7,12 @@ import UserProfile from './UserProfile'
 import UserSwipe from './UserSwipe'
 import UserFeed from './UserFeed'
 
-class Profile extends React.Component { render(){return (<UserProfile />)} }
+
 class Swipe extends React.Component { render(){return (<UserSwipe />)} }
 class Feed extends React.Component { render(){return (<UserFeed />)} }
+class Profile extends React.Component { render(){return (<UserProfile />)} }
 
-const TheStack = createMaterialTopTabNavigator({ Profile: Profile, Swipe: Swipe, Feed: Feed });
+const TheStack = createMaterialTopTabNavigator({Swipe: Swipe, Feed: Feed, Profile: Profile,  });
 
 const UserView = createAppContainer(TheStack);
 

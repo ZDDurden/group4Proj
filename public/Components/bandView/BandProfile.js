@@ -46,7 +46,8 @@ export default class BandProfile extends React.Component {
           bands: result,
           isLoaded: true,
           // id: result._id
-        });
+        })
+        console.log(this.state.bands);
       })
       .catch(error => {
         alert("request failed", error);
