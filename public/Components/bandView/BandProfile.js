@@ -63,12 +63,15 @@ export default class BandProfile extends React.Component {
     } else {
     return (
       <View style={styles.container}>
-        <View style={styles.header}></View>
+        <ImageBackground style={styles.header} source={{
+            uri:
+              this.state.bands.banner
+          }}></ImageBackground>
         <Image
           style={styles.avatar}
           source={{
             uri:
-              "https://icon-library.net/images/default-user-icon/default-user-icon-11.jpg"
+              this.state.bands.logo
           }}
         />
         <View style={styles.body}>
