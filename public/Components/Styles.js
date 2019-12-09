@@ -156,8 +156,13 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
 
-
-
+    bandDescript: {
+        margin: 10,        
+    },
+    bandBio: {
+        fontSize: 20,
+        color: c.dark2,  
+    },      
 
 
 
