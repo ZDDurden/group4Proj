@@ -20,17 +20,41 @@ class Card extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    spotUrl = spotUrl.concat(this.props.spotify)
+  }
+
   render() {
     return (
 
       <View style={styles.bandBody}>
-        <Text>{this.props.name}</Text>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <ImageBackground style={styles.swipeBanner} imageStyle={{ borderRadius: 10 }} source={{ uri: this.props.banner }} >
+            <View style={styles.bandDetails}>
+              <Text style={styles.bandName}>{this.props.name}</Text>
+              <Text style={styles.bandGenre}>{this.props.genre}</Text>
+              <Text style={styles.bandLocation}>{this.props.location}</Text>
+            </View>
+          </ImageBackground>
+
+          <View style={styles.spotView, { height: 235 }}>
+            <WebView imageStyle={{ borderRadius: 10 }}
+              source={{ uri: "https://open.spotify.com/embed/artist/" + this.props.spotify }}
+              style={styles.spotify}
+            />
+          </View>
+
+          <View style={styles.bandDescript}>
+            <Text style={styles.bandBio}>{this.props.bio}</Text>
+          </View>
+
+        </ScrollView>
       </View>
     )
   }
 }
 
-class UserSwipe extends React.Component {
+class UserSwipeOLD extends React.Component {
   constructor(props) {
     super(props);
 
@@ -45,7 +69,7 @@ class UserSwipe extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://banderapi.herokuapp.com/bands/${id}`)
+    fetch(`https://banderapi.herokuapp.com/bands/`)
       .then(response => {
         return response.json();
       })
@@ -109,7 +133,7 @@ class NoMoreCards extends React.Component {
   }
 }
 
-class UserSwipeNEW extends React.Component {
+class UserSwipe extends React.Component {
 
   constructor(props) {
     super(props);
@@ -125,7 +149,7 @@ class UserSwipeNEW extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://banderapi.herokuapp.com/bands/${id}`)
+    fetch(`https://banderapi.herokuapp.com/bands/`)
       .then(response => {
         return response.json();
       })
@@ -160,6 +184,7 @@ class UserSwipeNEW extends React.Component {
     // stack={true}
     return (
       <SwipeCards
+        style={styles.card}
         cards={this.state.bands}
         renderCard={(cardData) => <Card {...cardData} />}
         renderNoMoreCards={() => <NoMoreCards />}

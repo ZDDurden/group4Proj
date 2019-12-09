@@ -169,6 +169,9 @@ const styles = StyleSheet.create({
     swipeBanner: {
         height: 400,
         marginBottom: 10
+    },
+    card: {
+        flex: 1
     }
 });
 
