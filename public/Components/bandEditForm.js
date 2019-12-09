@@ -5,6 +5,8 @@ import t from 'tcomb-form-native';
 
 const Form = t.form.Form;
 
+const id = '5de5848383c0259731bbe274'
+
 const Band = t.struct({
   name: t.String,
   email: t.String,
@@ -73,7 +75,7 @@ const options = {
 export default class BandEditForm extends Component {
   handleSubmit = () => {
     const value = this.refs.form.getValue();
-    fetch("https://banderapi.herokuapp.com/bands/:id", {
+    fetch(`https://banderapi.herokuapp.com/bands/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"

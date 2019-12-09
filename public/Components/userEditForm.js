@@ -3,6 +3,8 @@ import { View, StyleSheet, Button } from 'react-native';
 
 import t from 'tcomb-form-native';
 
+const id = '5de587643fab7bf2c5529383'
+
 const Form = t.form.Form;
 
 const User = t.struct({
@@ -74,7 +76,7 @@ const options = {
 export default class UserEditForm extends Component {
   handleSubmit = () => {
     const value = this.refs.form.getValue();
-    fetch("https://banderapi.herokuapp.com/users/:id", {
+    fetch(`https://banderapi.herokuapp.com/users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
