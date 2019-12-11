@@ -51,9 +51,20 @@ class SignInScreen extends React.Component {
 }
 
 class HomeScreen extends React.Component {
+    constructor() {
+        super(),
+            this.state = {
+                userId: "5de587643fab7bf2c5529383"
+            }
+    }
     static navigationOptions = {
         header: null,
     };
+
+    setUser(id) {
+        let userId = "it's working"
+        AsyncStorage.setItem('userId', id)
+    }
 
     render() {
         return (
@@ -77,7 +88,8 @@ class HomeScreen extends React.Component {
         );
     }
 
-    _User = () => {
+    _User = async () => {
+        this.setUser(this.state.userId)
         this.props.navigation.navigate('User');
     };
 
@@ -124,9 +136,31 @@ class CreateScreen extends React.Component {
 }
 
 class UserScreen extends React.Component {
+    constructor() {
+        super(),
+            this.state = {
+
+            }
+    }
     static navigationOptions = {
         header: null,
     };
+
+    showUser = async () => {
+        try {
+            let user = await AsyncStorage.getItem('userId');
+            this.setState({userId: user})
+            // alert(this.state.userId)
+        }
+
+        catch(err) {
+
+        }
+    }
+
+    componentDidMount() {
+        this.showUser()
+    }
 
     render() {
         return (
@@ -135,7 +169,7 @@ class UserScreen extends React.Component {
                 <UserView />
                 <TouchableOpacity style={styles.buttonContainer} title="I'm done, sign me out" onPress={this._signOutAsync}>
                     <Text style={styles.buttonText}>
-                        sign out
+                        LOG OUT
                     </Text>
                 </TouchableOpacity>
             </>
@@ -230,7 +264,7 @@ class BandEdit extends React.Component {
     static navigationOptions = {
         header: null,
     };
-  
+
     render() {
         return (
             <>
@@ -247,7 +281,7 @@ class BandEdit extends React.Component {
         await AsyncStorage.clear();
         this.props.navigation.navigate('Auth');
     };
-  }
+}
 
 
 class AuthLoadingScreen extends React.Component {
@@ -276,7 +310,7 @@ class AuthLoadingScreen extends React.Component {
     }
 }
 
-const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, Create: CreateScreen, CreateUser: UserForm, CreateBand: BandForm, BandEd: BandEdit}, {
+const AppStack = createStackNavigator({ Home: HomeScreen, User: UserScreen, Band: BandScreen, Create: CreateScreen, CreateUser: UserForm, CreateBand: BandForm, BandEd: BandEdit }, {
     // The previous screen will slide to the bottom while the next screen will fade in
     transition: (
         <Transition.Together>
@@ -306,7 +340,7 @@ const TheStack = createAppContainer(createSwitchNavigator(
 class Login extends React.Component {
     render() {
         return (
-            <TheStack  />
+            <TheStack />
         )
     }
 }
