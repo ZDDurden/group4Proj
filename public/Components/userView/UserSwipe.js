@@ -80,8 +80,10 @@ class UserSwipe extends React.Component {
 			bands: [],
 			isLoaded: false
 		};
+
 		this.fetchBands = this.fetchBands.bind(this)
 		this.bandLike = this.bandLike.bind(this)
+		this.bandDislike = this.bandDislike.bind(this)
 	}
 
 	getUser = async () => {
@@ -142,7 +144,47 @@ class UserSwipe extends React.Component {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
+						name: "Alex",
+						location: "Birmingham, AL",
+						password: "alex123",
+						email: "alex.townley@conserv.io",
+						dob: "07/06/1903",
 						likes: data.likes
+					})
+				})
+			})
+
+			.catch(error => {
+				console.error(error);
+			});
+	}
+
+	bandDislike(card) {
+
+
+		fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
+			// method: "GET",
+			headers: {
+				"Content-Type": "application/json"
+			},
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data.bands)
+				data.bands = data.bands + (", " + card._id)
+				console.log(data.bands)
+				fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
+					method: "PUT",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						name: "Alex",
+						location: "Birmingham, AL",
+						password: "alex123",
+						email: "alex.townley@conserv.io",
+						dob: "07/06/1903",
+						bands: data.bands
 					})
 				})
 			})
@@ -152,42 +194,30 @@ class UserSwipe extends React.Component {
 			});
 
 		// fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
-		// 	method: "POST",
+		// 	// method: "GET",
 		// 	headers: {
 		// 		"Content-Type": "application/json"
 		// 	},
-		// 	body: JSON.stringify({
-		// 		name: value.username,
-		// 		email: value.email,
-		// 		password: value.password,
-		// 		location: value.location
-		// 	})
 		// })
-		// .then(response => response.json())
-		// .catch(error => {
-		// 	console.error(error);
-		// });
-	}
+		// 	.then(response => response.json())
+		// 	.then(data => {
+		// 		data.dislikes = data.dislikes + (", " + card._id)
+		// 		console.log(data.dislikes)
+		// 		fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
+		// 			method: "PUT",
+		// 			headers: {
+		// 				"Content-Type": "application/json"
+		// 			},
+		// 			body: JSON.stringify({
 
-	bandDislike(card) {
-		const value = this.refs.form.getValue()
+		// 				dislikes: data.dislikes
+		// 			})
+		// 		})
+		// 	})
 
-		fetch("https://banderapi.herokuapp.com/users/", {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json"
-			},
-			body: JSON.stringify({
-				name: value.username,
-				email: value.email,
-				password: value.password,
-				location: value.location
-			})
-		})
-			.then(response => response.json())
-			.catch(error => {
-				console.error(error);
-			});
+		// 	.catch(error => {
+		// 		console.error(error);
+		// 	});
 	}
 
 	handleYup(card) {

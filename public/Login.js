@@ -54,7 +54,7 @@ class HomeScreen extends React.Component {
     constructor() {
         super(),
             this.state = {
-                userId: "5de587643fab7bf2c5529383"
+                userId: "5deecfde9c96c6161872dd97"
             }
     }
     static navigationOptions = {
