@@ -18,6 +18,7 @@ import {
 } from "react-native-elements";
 import styles from "../Styles";
 
+
 class UserFeed extends React.Component {
 	constructor(props) {
 		super(props);
@@ -32,15 +33,11 @@ class UserFeed extends React.Component {
 		this.getUserLikes = this.getUserLikes.bind(this)
 	}
 
-
-
 	getUser = async () => {
 		try {
 			let user = await AsyncStorage.getItem('userId');
 			this.setState({ userId: user })
-			console.log(this.state.userId)
 		}
-		
 		catch (err) {
 			alert(err)
 		}
@@ -48,43 +45,55 @@ class UserFeed extends React.Component {
 
 	getUserLikes() {
 
-
-		fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
-			// method: "GET",
-			headers: {
-				"Content-Type": "application/jsonHTML"
-			},
-		})
-			.then(response => response.json())
-			.then(data => console.log(data)) 
-			.catch(err => { console.log(err) })
-		
-
-
 	}
 
 	makeRemoteRequest = () => {
 		const url = `https://banderapi.herokuapp.com/bands/`;
 		this.setState({ loading: true });
 
-		fetch(url)
-			.then(res => res.json())
-			.then(res => {
-				console.log(res)
-				this.setState({
-					data: res,
-					error: res.error || null,
-					loading: false,
-				});
-				this.arrayholder = res.results;
-				
+		let theLikes;
+		let theBands = [];
 
+		// fetches bands
+		fetch(url)
+			// jsonifies bands
+			.then(res => res.json())
+			// sets userId to state
+			.then(res => {
+				this.getUser()
+				// console.log(res)
+				return res
 			})
-			.then(data => {console.log(this.state.data)})
-			.catch(error => {
-				this.setState({ error, loading: false });
-			});
-	};
+			// sets userLikes to state
+			.then(res => {
+				fetch(`https://banderapi.herokuapp.com/users/${this.state.userId}`, {
+					// method: "GET",
+					headers: {
+						"Content-Type": "application/jsonHTML"
+					},
+				})
+					.then(response => response.json())
+					.then(data => {
+						this.setState({ userLikes: data.likes })
+						return data
+					})
+					.then(data => {
+						theLikes = this.state.userLikes
+						res.map(function (val) {
+							if (theLikes.includes(val._id)) {
+								theBands.push(val);
+							}
+						})
+						return data
+					})
+					.then(data => {
+						console.log(data)
+						this.setState({ theBands: theBands })
+					})
+
+					.catch(err => { console.log(err) })
+			})
+	}
 
 	renderSeparator = () => {
 		return (
@@ -100,7 +109,7 @@ class UserFeed extends React.Component {
 	};
 
 	searchFilterFunction = text => {
-		this.setState({ 
+		this.setState({
 			value: text,
 		});
 
@@ -129,24 +138,29 @@ class UserFeed extends React.Component {
 	};
 
 	componentDidMount() {
-		this.makeRemoteRequest(); 
-		this.getUser(); 
-		// this.getUserLikes();
+		this.makeRemoteRequest();
+		this.getUser();
+
+	}
+
+	componentDidUpdate() {
+		// console.log("an update happened")
 	}
 
 
 	render() {
-		if (this.state.loading) {
-			return (
-				<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-					<ActivityIndicator />
-				</View>
-			);
-		}
+		// if (this.state.loading) {
+		// 	return (
+		// 		<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+		// 			<ActivityIndicator />
+		// 		</View>
+		// 	);
+		// }
+		// console.log("rerender")
 		return (
 			<View style={{ flex: 1 }}>
 				<FlatList
-					data={this.state.data}
+					data={this.state.theBands}
 					renderItem={({ item }) => (
 						<ListItem
 							leftAvatar={{ source: { uri: item.banner } }}

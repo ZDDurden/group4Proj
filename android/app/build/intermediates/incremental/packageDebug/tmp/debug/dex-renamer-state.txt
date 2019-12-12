@@ -1,4 +1,4 @@
-#Mon Dec 09 16:10:02 CST 2019
-base.0=/Users/student/Desktop/bander/android/app/build/intermediates/transforms/dexMerger/debug/0
-renamed.0=classes.dex
+#Wed Dec 11 23:28:22 CST 2019
+base.0=/Users/alex/Desktop/group4Proj/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
+renamed.0=classes.dex
